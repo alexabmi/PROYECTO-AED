@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cuack.h>
 
 using namespace std;
 
