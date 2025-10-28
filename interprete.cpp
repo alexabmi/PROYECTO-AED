@@ -3,6 +3,7 @@
 #include "fecha.h"
 #include "cuack.h"
 #include "interprete.h"
+#include "DiccionarioCuacs.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ void Interprete(string comando){
     if (comando == "tag") procesar_tag();
 }
 
+DiccionarioCuacs dic;
 Cuack Actual;
 Fecha FechaTemp;
 string usuario, mensaje_mcuac;
@@ -28,6 +30,7 @@ void procesar_mcuac(){
     cin.ignore();
     getline(cin, mensaje_mcuac);
     Actual.guardarCuac(usuario, FechaTemp, mensaje_mcuac);
+    dic.insertar(Actual);
     contador++;
     cout << contador << " cuac" << endl;
 }
@@ -39,6 +42,7 @@ void procesar_pcuac(){
     cin >> mensaje_tcuac;
     string msg = CuackTemp.cambiar_mensaje(mensaje_tcuac);
     Actual.guardarCuac(usuario, FechaTemp, msg);
+    dic.insertar(Actual);
     contador++;
     cout << contador << " cuac" <<  endl;
 }
@@ -47,22 +51,27 @@ void procesar_last(){
     int numero;
     cin >> numero;
     cout << "last " << numero << endl;
-    Actual.mostrarCuac();
+    dic.last(numero);
 }
 
 void procesar_follow(){
     string user;
     cin >> user;
     cout << "follow " << user << endl;
-    Actual.mostrarCuac();
+    dic.follow(user);
 }
 
 void procesar_date(){
-    string linea;
-    cin.ignore();
-    getline(cin, linea);
-    cout << "date " << linea << endl;
-    Actual.mostrarCuac();
+    Fecha f1;
+    Fecha f2;
+    f1.guardarFecha();
+    f2.guardarFecha();
+    cout << "date ";
+    f1.mostrarFecha();
+    cout  << " ";
+    f2.mostrarFecha();
+    cout << endl;
+    dic.date(f1, f2);
 }
 
 void procesar_tag(){

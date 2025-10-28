@@ -18,6 +18,9 @@ public:
     bool guardarCuac(std::string user, Fecha fecha, std::string msg);
     void mostrarCuac();
     std::string cambiar_mensaje(int numero);
+    std::string getUsuario();
+    Fecha getFecha();
+    std::string getMensaje();
 };
 
 #endif

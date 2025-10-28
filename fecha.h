@@ -12,7 +12,7 @@ public:
 
     bool guardarFecha();
     void mostrarFecha();
-    int compararFechas(Fecha f1, Fecha f2);
+    static int compararFechas(Fecha f1, Fecha f2);
     int getDia();
     int getMes();
     int getAnio();

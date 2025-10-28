@@ -62,14 +62,14 @@ int Fecha::compararFechas(Fecha f1, Fecha f2) {
     if (f2.dia > f1.dia) return 1;
     if (f2.dia < f1.dia) return -1;
 
-    if (f2.hora > f1.hora) return 1;
-    if (f2.hora < f1.hora) return -1;
+    if (f2.getHora() > f1.getHora()) return 1;
+    if (f2.getHora() < f1.getHora()) return -1;
 
-    if (f2.min > f1.min) return 1;
-    if (f2.min < f1.min) return -1;
+    if (f2.getMinutos() > f1.getMinutos()) return 1;
+    if (f2.getMinutos() < f1.getMinutos()) return -1;
 
-    if (f2.seg > f1.seg) return 1;
-    if (f2.seg < f1.seg) return -1;
+    if (f2.getSegundos() > f1.getSegundos()) return 1;
+    if (f2.getSegundos() < f1.getSegundos()) return -1;
 
     return 0;
 }

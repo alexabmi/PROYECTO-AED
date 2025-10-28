@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17
 
 # Archivos fuente y objetos
-SRC = main.cpp interprete.cpp cuack.cpp fecha.cpp
+SRC = main.cpp interprete.cpp cuack.cpp fecha.cpp DiccionarioCuacs.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # Nombre del ejecutable
