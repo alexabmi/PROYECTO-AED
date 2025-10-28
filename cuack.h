@@ -4,21 +4,20 @@
 
 #include <string>
 #include "fecha.h"
-using namespace std;
 
 class Cuack {
 private:
-    string nombre_usuario;
+    std::string nombre_usuario;
     Fecha f;
-    string texto;
+    std::string texto;
 
 public:
     Cuack();
-    Cuack(string nombre, Fecha fecha, string mensaje);
+    Cuack(std::string nombre, Fecha fecha, std::string mensaje);
 
-    bool guardarCuac(string user, Fecha fecha, string msg);
+    bool guardarCuac(std::string user, Fecha fecha, std::string msg);
     void mostrarCuac();
-    string cambiar_mensaje(int numero);
+    std::string cambiar_mensaje(int numero);
 };
 
 #endif

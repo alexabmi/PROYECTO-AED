@@ -1,4 +1,3 @@
-// cuack.cpp
 #include "cuack.h"
 #include <iostream>
 using namespace std;
@@ -19,10 +18,11 @@ bool Cuack::guardarCuac(string user, Fecha fecha, string msg) {
 }
 
 void Cuack::mostrarCuac() {
-    cout << nombre_usuario << " " 
+    cout << "1. " << nombre_usuario << " " 
          << f.getDia() << "/" << f.getMes() << "/" << f.getAnio() << " "
          << f.getHora() << ":" << f.getMinutos() << ":" << f.getSegundos() 
-         << endl << "   " << texto << endl;
+         << endl << "   " << texto
+         << endl << "Total: 1 cuac" << endl;
 }
 
 string Cuack::cambiar_mensaje(int numero) {

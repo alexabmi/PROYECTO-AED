@@ -22,44 +22,35 @@ Fecha::Fecha(int d, int m, int anyo, int h, int min, int s) {
     this->seg = s;
 }
 
-bool Fecha::guardarFecha(int day, int month, int year, int haur, int minuts, int sec) {
-    if (day < 1 || day > 31) return false;
-    if (month < 1 || month > 12) return false;
-    if (haur < 0 || haur > 23) return false;
-    if (minuts < 0 || minuts > 59) return false;
-    if (sec < 0 || sec > 59) return false;
+
+bool Fecha::guardarFecha() {
+    int day, month, year, hour, minuts, sec;
+    char sep;
+    cin >> day >> sep >> month >> sep >> year >> hour >> sep >> minuts >> sep >> sec;
     this->dia = day;
     this->mes = month;
     this->anio = year;
-    this->hora = haur;
+    this->hora = hour;
     this->min = minuts;
     this->seg = sec;
     return true;
 }
 
 void Fecha::mostrarFecha() {
-    string horaf, minf, segf;
+    // Día y mes sin ceros
+    cout << dia << "/" << mes << "/" << anio << " ";
 
-    if (hora < 10) {
-        horaf = "0" + to_string(hora);
-    } else {
-        horaf = to_string(hora);
-    }
+    // Hora con ceros
+    if (hora < 10) cout << "0";
+    cout << hora << ":";
 
-    if (min < 10) {
-        minf = "0" + to_string(min);
-    } else {
-        minf = to_string(min);
-    }
+    if (min < 10) cout << "0";
+    cout << min << ":";
 
-    if (seg < 10) {
-        segf = "0" + to_string(seg);
-    } else {
-        segf = to_string(seg);
-    }
-
-    cout << dia << "/" << mes << "/" << anio << " " << horaf << ":" << minf << ":" << segf;
+    if (seg < 10) cout << "0";
+    cout << seg;
 }
+
 
 int Fecha::compararFechas(Fecha f1, Fecha f2) {
     if (f2.anio > f1.anio) return 1;
@@ -86,6 +77,31 @@ int Fecha::compararFechas(Fecha f1, Fecha f2) {
 int Fecha::getDia() { return dia; }
 int Fecha::getMes() { return mes; }
 int Fecha::getAnio() { return anio; }
-int Fecha::getHora() { return hora; }
-int Fecha::getMinutos() { return min; }
-int Fecha::getSegundos() { return seg; }
+string Fecha::getHora() {
+    if (hora < 10){
+        string horaf = "0" + to_string(hora);
+        return horaf;
+    } else {
+        string horaf = to_string(hora);
+        return horaf;
+    }
+}
+
+string Fecha::getMinutos() {
+    if (min < 10){
+        string minf = "0" + to_string(min);
+        return minf;
+    } else {
+        string minf = to_string(min);
+        return minf;
+    }
+}
+string Fecha::getSegundos() {
+    if (seg < 10){
+        string segf = "0" + to_string(seg);
+        return segf;
+    } else {
+        string segf = to_string(seg);
+        return segf;
+    }
+}
